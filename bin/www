@@ -3,16 +3,30 @@
 /**
  * Module dependencies.
  */
+//node开发环境设置
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 var app = require('../app');
 var debug = require('debug')('xsd_project:server');
 var http = require('http');
 var chalk = require('chalk');
-
+var mongoose = require('mongoose');
+var config = require('../config');
 /**
  * Get port from environment and store in Express.
  */
-
+// MongoDB Connection
+var db = mongoose.connect(config.db.uri, config.db.options, function(err) {
+  if (err) {
+    console.error(chalk.red('Could not connect to MongoDB!'));
+    console.log(chalk.red(err));
+  }
+  console.log(chalk.green("MongoDB connection already ok"));
+});
+mongoose.connection.on('error', function(err) {
+  console.error(chalk.red('MongoDB connection error: ' + err));
+  process.exit(-1);
+});
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
@@ -22,7 +36,7 @@ app.set('port', port);
 
 var server = http.createServer(app);
 console.log(chalk.green(' application started'));
-console.log(chalk.green(' serv-port---     '+port));
+console.log(chalk.green(' serv-port---     ' + port));
 /**
  * Listen on provided port, on all network interfaces.
  */
@@ -60,9 +74,7 @@ function onError(error) {
     throw error;
   }
 
-  var bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+  var bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
@@ -85,8 +97,6 @@ function onError(error) {
 
 function onListening() {
   var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
+  var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
