@@ -33,3 +33,25 @@ exports.register_action = function(req, res, next) {
 		res.render('user/regist_suc_tip', option);
 	});
 }
+exports.login = function(req, res, next) {
+	console.log(req.body);
+	var option = {
+			tip: '恭喜您注册成功!'
+		}
+		// 验证通过, 持久化数据
+	var user = new User(req.body);
+
+	user.save(function(err) { // 也可以使用 User.Create(properties, callback) 方式保存数据
+		if (err) {
+			return next(err);
+		}
+
+		res.render('user/regist_suc_tip', option);
+	});
+}
+exports.to_login = function(req, res, next) {
+	var option = {
+			tip: '这是XSD登录页面!'
+		}
+	res.render('user/to_login', option);
+}

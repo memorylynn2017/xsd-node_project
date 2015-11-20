@@ -760,7 +760,7 @@ html{height:100%;}
 .theLoginBox .theLoginArea p {margin: 1px 0px 0px 0px;height: 92px;width: 330px;}
 .theLoginBox .theLoginArea p label{font-size:14px;text-align:right;color:#666;padding:0;}
 .theLoginBox .theLoginArea p input{display:block;line-height: 18px;transition: all 0.30s ease-in-out;-webkit-transition: all 0.30s ease-in-out;-moz-transition: all 0.30s ease-in-out;border: 1px solid #D2D9DC;;;outline:none; width:290px; margin: 8px 0px;height: 33px;border-radius:0px; padding: 8px 0px 8px 8px;}
-.theLoginBox .theLoginArea p span{ display:none;width:290px;background:url(images/tip_bg.png) repeat;line-height:21px; margin: 0px 0px 0px 0px; padding:0px 0px 0px 8px;font-size:12px; border-radius:3px;color:#c83100; border: 1px solid #fceec1;}
+.theLoginBox .theLoginArea p span{width:290px;background:url(images/tip_bg.png) repeat;line-height:21px; margin: 0px 0px 0px 0px; padding:0px 0px 0px 8px;font-size:12px; border-radius:3px;color:#c83100;}
 .theLoginBox .theLoginArea p input:hover{box-shadow: 0 0 0 5px rgba(247, 247, 250,.8);border-radius:0px;border: 1px solid #DADADA;}
 .theLoginBox .theLoginArea p input:focus{box-shadow:0 0 0 5px rgba(242, 248, 252,.8);border-radius:0px;border: 1px solid #B7D4EA;}
 .theLoginBox .theLoginArea p input.error, .theLoginBox .theLoginArea input.G-Anim-leftRight {box-shadow: 0 0 0 5px rgba(252, 245, 245, 0.8);;border-radius:0px;border: 1px solid #ECA9A4;}
