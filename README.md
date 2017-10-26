@@ -1,2 +1,2 @@
 # xsd-node_project
-薛松德的练习项目
+node服务端 express+handleBar 后端模板渲染 登录 注册 
